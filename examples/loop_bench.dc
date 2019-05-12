@@ -1,10 +1,10 @@
 [ present_results
     "The sum is: " print . cr
     swap -
-    "The time difference is: " print . "ns" print cr
+    "The time difference is: " print . "us" print cr
 ]
 
-[ sl-helper 
+[ sl-helper
    # ( sum max cur )
    rot       # ( max cur sum )
    over      # ( max cur sum cur )
