@@ -75,14 +75,14 @@ MYINT def_mode;
 
 // needed so we can add 'import' to primitives
 void load_extra_primitives() {
-    primitives[74].name = "show-primitives";
-    primitives[74].function = show_primitivesfunc;
-    primitives[75].name = "import";
-    primitives[75].function = importfunc;
+    primitives[76].name = "show-primitives";
+    primitives[76].function = show_primitivesfunc;
+    primitives[77].name = "import";
+    primitives[77].function = importfunc;
     // final endpoint must be zeros,
     // and they won't count in the 'count':
-    primitives[76].name = 0;
-    primitives[76].function = 0;
+    primitives[78].name = 0;
+    primitives[78].function = 0;
 }
 
 // Where all the juicy fun begins... 
@@ -90,9 +90,7 @@ int main(int argc, char **argv)
 {
     setinput(stdin);
     resetoutfunc();
-    //load_extra_primitives();
-    srand(time(NULL));
-    //setlocale(LC_ALL, "");
+    load_extra_primitives();
     if (argc > 1) {
         for(int opt = 1; opt < argc; opt++) {
             if (strcmp(argv[opt], "-i") == 0) {
@@ -105,7 +103,7 @@ int main(int argc, char **argv)
         live_repl = 1;
     }
     if (live_repl) {
-        printf("Welcome to dclang! Aaron Krister Johnson, 2019\n");
+        printf("Welcome to dclang (rpi-int flavor)! Aaron Krister Johnson, 2019\n");
         printf("Make sure to peruse README.md to get your bearings!\n");
         show_primitivesfunc();
         repl();

@@ -2,7 +2,7 @@
 static void showfunc()
 {
     if (data_stack_ptr < 1) {
-        printf("stack underflow! ");
+        printf("Stack underflow! ");
         return;
     }
     fprintf(ofp, "%li ", pop());
@@ -12,7 +12,7 @@ static void showfunc()
 static void shownospacefunc()
 {
     if (data_stack_ptr < 1) {
-        printf("stack underflow! ");
+        printf("Stack underflow! ");
         return;
     }
     fprintf(ofp, "%li", pop());
@@ -22,17 +22,43 @@ static void shownospacefunc()
 static void showunsignedfunc()
 {
     if (data_stack_ptr < 1) {
-        printf("stack underflow! ");
+        printf("Stack underflow! ");
         return;
     }
     fprintf(ofp, "%lu ", pop());
     fflush(ofp);
 }
 
+static void showdoublefunc()
+{
+    if (data_stack_ptr < 2) {
+        printf("Stack underflow: double-length number need 2 cells on stack!");
+        return;
+    }
+    long long number = (long long) pop();
+    long long bignum = (long long) pop() << 32LL;
+    bignum = bignum + number;
+    fprintf(ofp, "%lli ", bignum);
+    fflush(ofp);
+}
+
+static void showunsigneddoublefunc()
+{
+    if (data_stack_ptr < 2) {
+        printf("Stack underflow: double-length number need 2 cells on stack! ");
+        return;
+    }
+    unsigned long long number = (unsigned long long) pop();
+    unsigned long long bignum = (unsigned long long) pop() << 32LL;
+    bignum = bignum + number;
+    fprintf(ofp, "%llu ", bignum);
+    fflush(ofp);
+}
+
 static void showhexfunc()
 {
     if (data_stack_ptr < 1) {
-        printf("stack underflow! ");
+        printf("Stack underflow! ");
         return;
     }
     fprintf(ofp, "0x%x ", pop());

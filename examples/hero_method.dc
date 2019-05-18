@@ -1,0 +1,17 @@
+# Hero's method of sqrt approximation. This will be a nearest integer
+# approximation
+
+[ sqrt-helper
+  2dup / + 2 /
+  2dup dup * abs
+  < if
+    sqrt-helper
+  endif
+] 
+
+[ h-sqrt
+  2   # add a starting value to the stack
+  sqrt-helper
+  swap drop
+]
+ 

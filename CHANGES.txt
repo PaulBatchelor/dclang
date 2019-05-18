@@ -1,3 +1,9 @@
+2019-05-18
+* rpi-int: re-factoring how time is measured, i.e., now using clock_gettime.
+* rpi-int: also, using two integers for entering a total sleep value
+(seconds and fraction of seconds in nanoseconds)
+* rpi-int: experimenting with displaying 64-bit values.
+
 2019-05-11
 * logic_ops simplification/refactor.
 * adding 'true' and 'false' constants
